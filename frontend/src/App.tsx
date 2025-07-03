@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import HeaderBanner from './components/HeaderBanner'
 
 function App() {
   const [name, setName] = useState('')
@@ -26,8 +27,9 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>RSVP</h1>
+    <div className="space-y-4 p-4">
+      <HeaderBanner />
+      <h1 className="text-2xl font-bold">RSVP</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>
