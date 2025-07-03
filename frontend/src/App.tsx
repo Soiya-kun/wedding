@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import HeaderBanner from './components/HeaderBanner'
 
 function App() {
   const [name, setName] = useState('')
@@ -26,9 +27,10 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>RSVP</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="space-y-8">
+      <HeaderBanner />
+      <h1 className="text-2xl font-bold">RSVP</h1>
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label>
             お名前
@@ -50,10 +52,10 @@ function App() {
             <textarea value={allergy} onChange={e => setAllergy(e.target.value)} />
           </label>
         </div>
-        <button type="submit">送信</button>
+        <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">送信</button>
       </form>
       {message && <p>{message}</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="text-red-500">{error}</p>}
     </div>
   )
 }
