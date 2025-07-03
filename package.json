@@ -1,0 +1,26 @@
+{
+  "name": "wedding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "genenv": "node scripts/generate-env.mjs",
+    "build": "npm run build -w frontend && npm run build -w infra",
+    "deploy": "npm run deploy -w infra"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "workspaces": [
+    "frontend",
+    "infra"
+  ],
+  "devDependencies": {
+    "aws-cdk": "^2.1020.1",
+    "dotenv": "^17.0.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
