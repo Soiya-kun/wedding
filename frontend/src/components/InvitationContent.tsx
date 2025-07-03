@@ -24,7 +24,7 @@ export default function InvitationContent({
             `
   }}>
       {/* Main Invitation Heading */}
-      <h2 className={cn("text-3xl font-black text-center mb-6", "text-purple-800")} style={{
+      <h2 className={cn("text-2xl font-black text-center mb-6", "text-purple-800")} style={{
           textShadow: `
                 3px 3px 0px #FFD700,
                 -1px -1px 0px #000,
@@ -53,16 +53,6 @@ export default function InvitationContent({
               const fallback = target.nextElementSibling as HTMLElement;
               if (fallback) fallback.style.display = 'block';
           }} />
-          {/* Fallback for broken image */}
-          <div className="w-64 h-48 mx-auto rounded-lg border-4 border-solid border-gold-400 bg-gradient-to-br from-pink-200 to-purple-200 flex items-center justify-center text-6xl hidden" style={{
-              filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.5))',
-              boxShadow: `
-                  0 0 20px rgba(255,215,0,0.6),
-                  inset 0 0 10px rgba(255,255,255,0.3)
-                `
-          }}>
-              💐💒💐
-          </div>
           <figcaption className="mt-2 text-sm font-bold text-purple-600" style={{
               textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
           }}>
@@ -86,7 +76,7 @@ export default function InvitationContent({
               お二人の結婚式にご招待します
           </p>
 
-          <p className={cn("text-4xl font-black text-red-600 my-4")} style={{
+          <p className={cn("text-3xl font-black text-red-600 my-4")} style={{
               textShadow: `
                   4px 4px 0px #FFD700,
                   -2px -2px 0px #000,

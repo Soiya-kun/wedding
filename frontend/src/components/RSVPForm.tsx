@@ -70,7 +70,7 @@ export default function RSVPForm({
         `
   }}>
       {/* Form Header */}
-      <h2 className={cn("text-2xl font-black text-center mb-6", "text-blue-800")} style={{
+      <h2 className={cn("text-xl font-black text-center mb-6", "text-blue-800")} style={{
       textShadow: `
             3px 3px 0px #00FFFF,
             -1px -1px 0px #000,
