@@ -7,6 +7,7 @@ import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
 import * as route53 from 'aws-cdk-lib/aws-route53';
 import * as targets from 'aws-cdk-lib/aws-route53-targets';
 import * as iam from 'aws-cdk-lib/aws-iam';
+import * as acm from 'aws-cdk-lib/aws-certificatemanager';
 
 export class FrontendStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -15,6 +16,9 @@ export class FrontendStack extends cdk.Stack {
     const account = cdk.Stack.of(this).account;
     const region = cdk.Stack.of(this).region;
     const bucketName = `wedding-frontend-${account}-${region}`;
+    const domainName = this.node.tryGetContext('domain') ?? process.env.DOMAIN_NAME;
+    const hostedZoneId = this.node.tryGetContext('zoneId') ?? process.env.HOSTED_ZONE_ID;
+    const certArn      = this.node.tryGetContext('certArn')  ?? process.env.CDK_CERT_ARN;
 
     const bucket = new s3.Bucket(this, 'Bucket', {
       bucketName,
@@ -34,8 +38,12 @@ export class FrontendStack extends cdk.Stack {
       },
     });
 
+    const cert = acm.Certificate.fromCertificateArn(this, 'Cert', certArn);
+
     const distribution = new cloudfront.Distribution(this, 'Distribution', {
       defaultRootObject: 'index.html',
+      domainNames: [domainName],          // ★ ここがポイント
+      certificate: cert,                  // ★ ACM (us-east-1) を渡す
       defaultBehavior: {
         origin: new origins.S3Origin(bucket),
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
@@ -66,9 +74,6 @@ export class FrontendStack extends cdk.Stack {
       distribution,
       distributionPaths: ['/*'],
     });
-
-    const domainName = this.node.tryGetContext('domainName') ?? process.env.DOMAIN_NAME;
-    const hostedZoneId = this.node.tryGetContext('hostedZoneId') ?? process.env.HOSTED_ZONE_ID;
 
     if (domainName && hostedZoneId) {
       const zone = route53.HostedZone.fromHostedZoneAttributes(this, 'HostedZone', {
