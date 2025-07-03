@@ -16,7 +16,8 @@
     "infra"
   ],
   "devDependencies": {
-    "aws-cdk": "^2"
+    "aws-cdk": "^2",
+    "dotenv": "^17.0.1"
   },
   "engines": {
     "node": ">=20"
