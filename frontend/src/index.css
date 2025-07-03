@@ -14,6 +14,7 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
   overflow: auto;
+  font-size: 87.5%; /* Reduce text size by one size */
 }
 
 @theme inline {

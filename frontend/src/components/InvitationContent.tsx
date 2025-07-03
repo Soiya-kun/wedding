@@ -24,7 +24,7 @@ export default function InvitationContent({
             `
   }}>
       {/* Main Invitation Heading */}
-      <h2 className={cn("text-4xl font-black text-center mb-6", "text-purple-800")} style={{
+      <h2 className={cn("text-3xl font-black text-center mb-6", "text-purple-800")} style={{
           textShadow: `
                 3px 3px 0px #FFD700,
                 -1px -1px 0px #000,
@@ -72,7 +72,7 @@ export default function InvitationContent({
 
       {/* Invitation Text */}
       <div className="text-center space-y-4">
-          <p className={cn("text-2xl font-bold text-pink-700")} style={{
+          <p className={cn("text-xl font-bold text-pink-700")} style={{
               textShadow: `
                   2px 2px 0px #FFD700,
                   -1px -1px 0px #000,
@@ -86,7 +86,7 @@ export default function InvitationContent({
               お二人の結婚式にご招待します
           </p>
 
-          <p className={cn("text-5xl font-black text-red-600 my-4")} style={{
+          <p className={cn("text-4xl font-black text-red-600 my-4")} style={{
               textShadow: `
                   4px 4px 0px #FFD700,
                   -2px -2px 0px #000,
@@ -101,7 +101,7 @@ export default function InvitationContent({
               💕 {coupleNames} 💕
           </p>
 
-          <div className="space-y-3 text-lg font-bold">
+          <div className="space-y-3 text-base font-bold">
               <p className="text-blue-700" style={{
                   textShadow: `
                     1px 1px 0px #FFD700,
@@ -141,7 +141,7 @@ export default function InvitationContent({
                   🏛️ <strong>会場：</strong> {venue}
               </p>
 
-              <p className="text-orange-700 text-base" style={{
+              <p className="text-orange-700 text-sm" style={{
                   textShadow: `
                     1px 1px 0px #FFD700,
                     -1px -1px 0px #000,
@@ -162,7 +162,7 @@ export default function InvitationContent({
                   inset 0 0 10px rgba(255,255,255,0.6)
                 `
           }}>
-              <p className={cn("text-2xl font-black text-red-800")} style={{
+              <p className={cn("text-xl font-black text-red-800")} style={{
                   textShadow: `
                     2px 2px 0px #FFFF00,
                     -1px -1px 0px #000,
@@ -176,7 +176,7 @@ export default function InvitationContent({
                   🎉 ぜひご参加ください！ 🎉
               </p>
 
-              <p className="text-lg font-bold text-purple-800 mt-2" style={{
+              <p className="text-base font-bold text-purple-800 mt-2" style={{
                   textShadow: `
                     1px 1px 0px #FFFF00,
                     -1px -1px 0px #000,

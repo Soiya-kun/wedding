@@ -40,7 +40,7 @@ export default function HeaderBanner({
       aria-label="結婚式招待ヘッダー"
     >
       <h1
-        className={cn('text-6xl font-black text-white mb-4', 'font-mono tracking-wider')}
+        className={cn('text-5xl font-black text-white mb-4', 'font-mono tracking-wider')}
         style={{
           textShadow: `
             3px 3px 0px #000,
@@ -59,7 +59,7 @@ export default function HeaderBanner({
       </h1>
 
       <div
-        className={cn('text-4xl font-bold text-yellow-300 mb-6', 'animate-pulse')}
+        className={cn('text-3xl font-bold text-yellow-300 mb-6', 'animate-pulse')}
         style={{
           textShadow: `
             2px 2px 0px #000,
@@ -89,7 +89,7 @@ export default function HeaderBanner({
         }}
       >
         <div
-          className={cn('text-2xl font-bold text-green-400', 'inline-block')}
+          className={cn('text-xl font-bold text-green-400', 'inline-block')}
           style={{
             textShadow: `
               1px 1px 0px #000,
