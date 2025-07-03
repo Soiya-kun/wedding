@@ -8,8 +8,8 @@ export interface HeaderBannerProps {
 }
 
 export default function HeaderBanner({
-  weddingDate = '令和6年10月31日（木）',
-  coupleNames = '太郎 ＆ 花子',
+  weddingDate = '令和7年9月17日（土）',
+  coupleNames = '誠也 ＆ 有紀',
 }: HeaderBannerProps) {
   return (
     <header
@@ -40,7 +40,7 @@ export default function HeaderBanner({
       aria-label="結婚式招待ヘッダー"
     >
       <h1
-        className={cn('text-6xl font-black text-white mb-4', 'font-mono tracking-wider')}
+        className={cn('text-3xl font-black text-white mb-4', 'font-mono tracking-wider')}
         style={{
           textShadow: `
             3px 3px 0px #000,
@@ -55,11 +55,11 @@ export default function HeaderBanner({
           filter: 'drop-shadow(5px 5px 10px rgba(0,0,0,0.8))',
         }}
       >
-        💒 ご招待します！ 💒
+        💒 結婚式招待状 💒
       </h1>
 
       <div
-        className={cn('text-4xl font-bold text-yellow-300 mb-6', 'animate-pulse')}
+        className={cn('text-2xl font-bold text-yellow-300 mb-6', 'animate-pulse')}
         style={{
           textShadow: `
             2px 2px 0px #000,
@@ -89,7 +89,7 @@ export default function HeaderBanner({
         }}
       >
         <div
-          className={cn('text-2xl font-bold text-green-400', 'inline-block')}
+          className={cn('text-xl font-bold text-green-400', 'inline-block')}
           style={{
             textShadow: `
               1px 1px 0px #000,

@@ -33,7 +33,7 @@ function App() {
         'bg-gradient-to-b from-purple-400 via-pink-400 to-yellow-400',
         "bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfMF8xKSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzBfMSIgeDE9IjAiIHkxPSIwIiB4Mj0iNDAiIHkyPSIwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRjAwRkYiIHN0b3Atb3BhY2l0eT0iMC4xIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwRkZGRiIgc3RvcC1vcGFjaXR5PSIwLjEiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K')]",
         "font-['Comic_Sans_MS',_cursive]",
-        'overflow-x-auto'
+        'overflow-x-hidden'
       )}
       style={{
         backgroundImage: `
@@ -61,11 +61,6 @@ function App() {
         aria-label="Wedding invitation main content"
       >
         <div className="table-row">
-          <aside
-            className="table-cell w-48 align-top bg-gradient-to-b from-cyan-300 to-purple-300 border-r-4 border-double border-purple-600"
-            role="navigation"
-            aria-label="Wedding invitation navigation"
-          />
           <div className="table-cell align-top p-6 bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-200">
             <div className="space-y-8">
               <section aria-label="Wedding invitation details">

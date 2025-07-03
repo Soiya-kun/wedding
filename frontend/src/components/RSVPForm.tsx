@@ -70,7 +70,7 @@ export default function RSVPForm({
         `
   }}>
       {/* Form Header */}
-      <h2 className={cn("text-3xl font-black text-center mb-6", "text-blue-800")} style={{
+      <h2 className={cn("text-xl font-black text-center mb-6", "text-blue-800")} style={{
       textShadow: `
             3px 3px 0px #00FFFF,
             -1px -1px 0px #000,
@@ -90,7 +90,7 @@ export default function RSVPForm({
       boxShadow: '0 0 15px rgba(255,165,0,0.8)',
       animation: 'pulse 1.5s infinite'
     }} role="status" aria-live="polite">
-          <p className="text-2xl font-bold text-orange-800" style={{
+          <p className="text-xl font-bold text-orange-800" style={{
         textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
         WebkitTextStroke: '1px black'
       }}>
@@ -101,7 +101,7 @@ export default function RSVPForm({
       {status === 'success' && <div className="text-center mb-6 p-4 bg-green-300 border-4 border-solid border-green-600 rounded-lg" style={{
       boxShadow: '0 0 15px rgba(0,255,0,0.8)'
     }} role="status" aria-live="polite">
-          <p className="text-2xl font-bold text-green-800" style={{
+          <p className="text-xl font-bold text-green-800" style={{
         textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
         WebkitTextStroke: '1px black'
       }}>
@@ -112,7 +112,7 @@ export default function RSVPForm({
       {status === 'error' && <div className="text-center mb-6 p-4 bg-red-300 border-4 border-solid border-red-600 rounded-lg" style={{
       boxShadow: '0 0 15px rgba(255,0,0,0.8)'
     }} role="alert" aria-live="assertive">
-          <p className="text-2xl font-bold text-red-800" style={{
+          <p className="text-xl font-bold text-red-800" style={{
         textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
         WebkitTextStroke: '1px black'
       }}>
@@ -125,7 +125,7 @@ export default function RSVPForm({
         <fieldset className="border-4 border-solid border-purple-500 p-4 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100" style={{
         boxShadow: 'inset 0 0 15px rgba(255,255,255,0.8)'
       }}>
-          <legend className="px-3 text-xl font-bold text-purple-800" style={{
+          <legend className="px-3 text-lg font-bold text-purple-800" style={{
           textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
           WebkitTextStroke: '0.5px black'
         }}>
@@ -135,13 +135,13 @@ export default function RSVPForm({
           <div className="space-y-4">
             {/* First Name */}
             <div>
-              <label htmlFor="firstName" className="block text-lg font-bold text-blue-700 mb-2" style={{
+              <label htmlFor="firstName" className="block text-base font-bold text-blue-700 mb-2" style={{
               textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
               WebkitTextStroke: '0.5px black'
             }}>
                 姓（例：山田）*
               </label>
-              <input type="text" id="firstName" value={formData.firstName} onChange={e => handleInputChange('firstName', e.target.value)} className={cn("w-full p-3 text-lg font-bold border-4 border-solid rounded-lg", "bg-white/90 text-purple-800", "focus:outline-none focus:ring-4 focus:ring-yellow-400 focus:ring-opacity-75", "transition-all duration-200", errors.firstName ? "border-red-500" : "border-blue-400")} style={{
+              <input type="text" id="firstName" value={formData.firstName} onChange={e => handleInputChange('firstName', e.target.value)} className={cn("w-full p-3 text-base font-bold border-4 border-solid rounded-lg", "bg-white/90 text-purple-800", "focus:outline-none focus:ring-4 focus:ring-yellow-400 focus:ring-opacity-75", "transition-all duration-200", errors.firstName ? "border-red-500" : "border-blue-400")} style={{
               boxShadow: errors.firstName ? '0 0 10px rgba(255,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.8)' : '0 0 10px rgba(0,100,255,0.3), inset 0 0 5px rgba(255,255,255,0.8)',
               textShadow: '1px 1px 1px rgba(255,255,255,0.5)'
             }} placeholder="姓を入力してください" aria-describedby={errors.firstName ? "firstName-error" : undefined} aria-invalid={!!errors.firstName} />
@@ -155,13 +155,13 @@ export default function RSVPForm({
 
             {/* Last Name */}
             <div>
-              <label htmlFor="lastName" className="block text-lg font-bold text-blue-700 mb-2" style={{
+              <label htmlFor="lastName" className="block text-base font-bold text-blue-700 mb-2" style={{
               textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
               WebkitTextStroke: '0.5px black'
             }}>
                 名（例：花子）*
               </label>
-              <input type="text" id="lastName" value={formData.lastName} onChange={e => handleInputChange('lastName', e.target.value)} className={cn("w-full p-3 text-lg font-bold border-4 border-solid rounded-lg", "bg-white/90 text-purple-800", "focus:outline-none focus:ring-4 focus:ring-yellow-400 focus:ring-opacity-75", "transition-all duration-200", errors.lastName ? "border-red-500" : "border-blue-400")} style={{
+              <input type="text" id="lastName" value={formData.lastName} onChange={e => handleInputChange('lastName', e.target.value)} className={cn("w-full p-3 text-base font-bold border-4 border-solid rounded-lg", "bg-white/90 text-purple-800", "focus:outline-none focus:ring-4 focus:ring-yellow-400 focus:ring-opacity-75", "transition-all duration-200", errors.lastName ? "border-red-500" : "border-blue-400")} style={{
               boxShadow: errors.lastName ? '0 0 10px rgba(255,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.8)' : '0 0 10px rgba(0,100,255,0.3), inset 0 0 5px rgba(255,255,255,0.8)',
               textShadow: '1px 1px 1px rgba(255,255,255,0.5)'
             }} placeholder="名を入力してください" aria-describedby={errors.lastName ? "lastName-error" : undefined} aria-invalid={!!errors.lastName} />
@@ -175,13 +175,13 @@ export default function RSVPForm({
 
             {/* Attendance */}
             <fieldset>
-              <legend className="text-lg font-bold text-blue-700 mb-3" style={{
+              <legend className="text-base font-bold text-blue-700 mb-3" style={{
               textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
               WebkitTextStroke: '0.5px black'
             }}>
                 ご出席の有無*
               </legend>
-              
+
               <div className="space-y-2">
                 {[{
                 value: 'Attending',
@@ -199,7 +199,7 @@ export default function RSVPForm({
                 boxShadow: formData.attending === option.value ? '0 0 15px rgba(128,0,128,0.6), inset 0 0 10px rgba(255,255,255,0.5)' : '0 0 5px rgba(0,0,0,0.2), inset 0 0 5px rgba(255,255,255,0.3)'
               }}>
                     <input type="radio" name="attending" value={option.value} checked={formData.attending === option.value} onChange={e => handleInputChange('attending', e.target.value)} className="mr-3 w-5 h-5 accent-purple-600" aria-describedby={errors.attending ? "attending-error" : undefined} />
-                    <span className="text-lg font-bold text-gray-800" style={{
+                    <span className="text-base font-bold text-gray-800" style={{
                   textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                   WebkitTextStroke: '0.5px black'
                 }}>
@@ -207,7 +207,7 @@ export default function RSVPForm({
                     </span>
                   </label>)}
               </div>
-              
+
               {errors.attending && <p id="attending-error" className="mt-2 text-red-600 font-bold" style={{
               textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
               WebkitTextStroke: '0.5px black'
@@ -220,7 +220,7 @@ export default function RSVPForm({
 
         {/* Submit Button */}
         <div className="text-center mt-6">
-          <motion.button type="submit" disabled={status === 'loading'} className={cn("px-8 py-4 text-2xl font-black rounded-lg border-4 border-solid border-black", "bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400", "text-white shadow-2xl", "focus:outline-none focus:ring-4 focus:ring-purple-400 focus:ring-opacity-75", "disabled:opacity-50 disabled:cursor-not-allowed", "transition-all duration-200")} style={{
+          <motion.button type="submit" disabled={status === 'loading'} className={cn("px-8 py-4 text-xl font-black rounded-lg border-4 border-solid border-black", "bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400", "text-white shadow-2xl", "focus:outline-none focus:ring-4 focus:ring-purple-400 focus:ring-opacity-75", "disabled:opacity-50 disabled:cursor-not-allowed", "transition-all duration-200")} style={{
           textShadow: `
                 2px 2px 0px #000,
                 -1px -1px 0px #000,
