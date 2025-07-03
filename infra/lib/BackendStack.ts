@@ -34,6 +34,7 @@ export class BackendStack extends cdk.Stack {
       corsPreflight: {
         allowOrigins: ['*'],
         allowMethods: [CorsHttpMethod.POST, CorsHttpMethod.OPTIONS],
+        allowHeaders: ['content-type'],
       },
     });
 
