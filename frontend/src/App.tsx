@@ -1,34 +1,60 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState('')
+  const [attendance, setAttendance] = useState('yes')
+  const [allergy, setAllergy] = useState('')
+  const [message, setMessage] = useState('')
+  const [error, setError] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setMessage('')
+    setError('')
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/rsvp`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, attendance, allergy })
+      })
+      if (!res.ok) throw new Error(await res.text())
+      setMessage('ありがとうございます！')
+    } catch (err) {
+      setError((err as Error).message)
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h1>RSVP</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>
+            お名前
+            <input value={name} onChange={e => setName(e.target.value)} required />
+          </label>
+        </div>
+        <div>
+          <label>
+            出席
+            <select value={attendance} onChange={e => setAttendance(e.target.value)}>
+              <option value="yes">はい</option>
+              <option value="no">いいえ</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label>
+            アレルギー
+            <textarea value={allergy} onChange={e => setAllergy(e.target.value)} />
+          </label>
+        </div>
+        <button type="submit">送信</button>
+      </form>
+      {message && <p>{message}</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
   )
 }
 
