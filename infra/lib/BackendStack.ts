@@ -1,0 +1,50 @@
+import * as cdk from 'aws-cdk-lib';
+import { Construct } from 'constructs';
+import { AttributeType, Table, BillingMode } from 'aws-cdk-lib/aws-dynamodb';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+import { Runtime } from 'aws-cdk-lib/aws-lambda';
+import { HttpApi, HttpMethod, CorsHttpMethod } from 'aws-cdk-lib/aws-apigatewayv2';
+import { HttpLambdaIntegration } from 'aws-cdk-lib/aws-apigatewayv2-integrations';
+
+export class BackendStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    const table = new Table(this, 'RsvpTable', {
+      tableName: 'RsvpTable',
+      partitionKey: { name: 'token', type: AttributeType.STRING },
+      billingMode: BillingMode.PAY_PER_REQUEST,
+      timeToLiveAttribute: 'ttl',
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
+
+    const fn = new NodejsFunction(this, 'RsvpHandler', {
+      runtime: Runtime.NODEJS_20_X,
+      entry: 'src/handler.ts',
+      environment: {
+        TABLE_NAME: table.tableName,
+      },
+    });
+
+    table.grantWriteData(fn);
+
+    const integration = new HttpLambdaIntegration('RsvpIntegration', fn);
+
+    const httpApi = new HttpApi(this, 'HttpApi', {
+      corsPreflight: {
+        allowOrigins: ['*'],
+        allowMethods: [CorsHttpMethod.POST, CorsHttpMethod.OPTIONS],
+      },
+    });
+
+    httpApi.addRoutes({
+      path: '/rsvp',
+      methods: [HttpMethod.POST],
+      integration,
+    });
+
+    new cdk.CfnOutput(this, 'HttpApiUrl', {
+      value: httpApi.apiEndpoint,
+    });
+  }
+}

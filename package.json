@@ -1,0 +1,25 @@
+{
+  "name": "wedding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build -w frontend && npm run build -w infra",
+    "deploy": "npm run deploy -w infra"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "workspaces": [
+    "frontend",
+    "infra"
+  ],
+  "devDependencies": {
+    "aws-cdk": "^2",
+    "dotenv": "^17.0.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
