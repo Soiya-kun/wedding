@@ -61,11 +61,6 @@ function App() {
         aria-label="Wedding invitation main content"
       >
         <div className="table-row">
-          <aside
-            className="table-cell w-48 align-top bg-gradient-to-b from-cyan-300 to-purple-300 border-r-4 border-double border-purple-600"
-            role="navigation"
-            aria-label="Wedding invitation navigation"
-          />
           <div className="table-cell align-top p-6 bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-200">
             <div className="space-y-8">
               <section aria-label="Wedding invitation details">

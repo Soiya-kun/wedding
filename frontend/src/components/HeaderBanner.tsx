@@ -8,8 +8,8 @@ export interface HeaderBannerProps {
 }
 
 export default function HeaderBanner({
-  weddingDate = '令和6年10月31日（木）',
-  coupleNames = '太郎 ＆ 花子',
+  weddingDate = '令和7年9月17日（土）',
+  coupleNames = '誠也 ＆ 有紀',
 }: HeaderBannerProps) {
   return (
     <header
@@ -55,7 +55,7 @@ export default function HeaderBanner({
           filter: 'drop-shadow(5px 5px 10px rgba(0,0,0,0.8))',
         }}
       >
-        💒 ご招待します！ 💒
+        💒 結婚式招待状 💒
       </h1>
 
       <div
