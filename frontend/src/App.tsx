@@ -2,29 +2,27 @@ import { useState } from 'react'
 import './App.css'
 import HeaderBanner from './components/HeaderBanner'
 import InvitationContent from './components/InvitationContent'
+import RSVPForm, { type RSVPFormData } from './components/RSVPForm'
 import { cn } from './lib/utils'
 
 function App() {
-  const [name, setName] = useState('')
-  const [attendance, setAttendance] = useState('yes')
-  const [allergy, setAllergy] = useState('')
-  const [message, setMessage] = useState('')
-  const [error, setError] = useState('')
+  const [rsvpStatus, setRsvpStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setMessage('')
-    setError('')
+  const handleRSVPSubmit = async (data: RSVPFormData) => {
+    setRsvpStatus('loading')
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/rsvp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, attendance, allergy })
+        body: JSON.stringify({
+          name: `${data.firstName} ${data.lastName}`,
+          attendance: data.attending
+        })
       })
       if (!res.ok) throw new Error(await res.text())
-      setMessage('ありがとうございます！')
-    } catch (err) {
-      setError((err as Error).message)
+      setRsvpStatus('success')
+    } catch {
+      setRsvpStatus('error')
     }
   }
 
@@ -74,33 +72,7 @@ function App() {
                 <InvitationContent />
               </section>
               <section aria-label="RSVP form">
-                <h1 className="text-2xl font-bold">RSVP</h1>
-                <form onSubmit={handleSubmit} className="space-y-2">
-                  <div>
-                    <label>
-                      お名前
-                      <input value={name} onChange={e => setName(e.target.value)} required />
-                    </label>
-                  </div>
-                  <div>
-                    <label>
-                      出席
-                      <select value={attendance} onChange={e => setAttendance(e.target.value)}>
-                        <option value="yes">はい</option>
-                        <option value="no">いいえ</option>
-                      </select>
-                    </label>
-                  </div>
-                  <div>
-                    <label>
-                      アレルギー
-                      <textarea value={allergy} onChange={e => setAllergy(e.target.value)} />
-                    </label>
-                  </div>
-                  <button type="submit">送信</button>
-                </form>
-                {message && <p>{message}</p>}
-                {error && <p style={{ color: 'red' }}>{error}</p>}
+                <RSVPForm onSubmit={handleRSVPSubmit} status={rsvpStatus} />
               </section>
             </div>
           </div>
