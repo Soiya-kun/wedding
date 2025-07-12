@@ -73,13 +73,8 @@ export default function RSVPForm({
       <h2 className={cn("text-xl font-black text-center mb-6", "text-blue-800")} style={{
       textShadow: `
             3px 3px 0px #00FFFF,
-            -1px -1px 0px #000,
-            1px -1px 0px #000,
-            -1px 1px 0px #000,
-            1px 1px 0px #000,
             0 0 15px rgba(0,255,255,0.8)
           `,
-      WebkitTextStroke: '2px black',
       filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.6))'
     }}>
         📝 出欠のご返信 📝
@@ -116,7 +111,7 @@ export default function RSVPForm({
         textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
         WebkitTextStroke: '1px black'
       }}>
-            ❌ エラーが発生しました。再度お試しください ❌
+            ❌ ｴﾗｰが発生しました。再度お試しください ❌
           </p>
         </div>}
 
@@ -222,11 +217,6 @@ export default function RSVPForm({
         <div className="text-center mt-6">
           <motion.button type="submit" disabled={status === 'loading'} className={cn("px-8 py-4 text-xl font-black rounded-lg border-4 border-solid border-black", "bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400", "text-white shadow-2xl", "focus:outline-none focus:ring-4 focus:ring-purple-400 focus:ring-opacity-75", "disabled:opacity-50 disabled:cursor-not-allowed", "transition-all duration-200")} style={{
           textShadow: `
-                2px 2px 0px #000,
-                -1px -1px 0px #000,
-                1px -1px 0px #000,
-                -1px 1px 0px #000,
-                1px 1px 0px #000,
                 0 0 10px rgba(255,255,255,0.8)
               `,
           WebkitTextStroke: '1px black',

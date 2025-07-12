@@ -17,8 +17,7 @@ export default function HeaderBanner({
         'w-full max-w-[800px] mx-auto',
         'bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500',
         'border-8 border-double border-yellow-400',
-        'p-6 text-center shadow-2xl',
-        "font-['Comic_Sans_MS',_cursive]"
+        'p-6 text-center shadow-2xl'
       )}
       style={{
         boxShadow: `
@@ -37,21 +36,16 @@ export default function HeaderBanner({
         `,
       }}
       role="banner"
-      aria-label="結婚式招待ヘッダー"
+      aria-label="結婚式招待ﾍｯﾀﾞｰ"
     >
       <h1
         className={cn('text-3xl font-black text-white mb-4', 'font-mono tracking-wider')}
         style={{
           textShadow: `
-            3px 3px 0px #000,
-            -1px -1px 0px #000,
-            1px -1px 0px #000,
-            -1px 1px 0px #000,
-            1px 1px 0px #000,
             0 0 20px rgba(255,255,0,0.8),
             0 0 40px rgba(255,0,255,0.6)
           `,
-          WebkitTextStroke: '2px black',
+          WebkitTextStroke: '0.5px black',
           filter: 'drop-shadow(5px 5px 10px rgba(0,0,0,0.8))',
         }}
       >
@@ -62,11 +56,6 @@ export default function HeaderBanner({
         className={cn('text-2xl font-bold text-yellow-300 mb-6', 'animate-pulse')}
         style={{
           textShadow: `
-            2px 2px 0px #000,
-            -1px -1px 0px #000,
-            1px -1px 0px #000,
-            -1px 1px 0px #000,
-            1px 1px 0px #000,
             0 0 15px rgba(255,255,0,1)
           `,
           WebkitTextStroke: '1px black',
@@ -92,7 +81,6 @@ export default function HeaderBanner({
           className={cn('text-xl font-bold text-green-400', 'inline-block')}
           style={{
             textShadow: `
-              1px 1px 0px #000,
               0 0 10px rgba(0,255,0,1)
             `,
             WebkitTextStroke: '1px black',

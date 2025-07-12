@@ -24,16 +24,11 @@ export default function InvitationContent({
             `
   }}>
       {/* Main Invitation Heading */}
-      <h2 className={cn("text-2xl font-black text-center mb-6", "text-purple-800")} style={{
+      <h2 className={cn("text-2xl text-center mb-6", "text-purple-800")} style={{
           textShadow: `
                 3px 3px 0px #FFD700,
-                -1px -1px 0px #000,
-                1px -1px 0px #000,
-                -1px 1px 0px #000,
-                1px 1px 0px #000,
                 0 0 15px rgba(255,215,0,0.8)
               `,
-          WebkitTextStroke: '2px black',
           filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.6))'
       }}>
           💒 結婚式のご案内 💒
@@ -56,7 +51,7 @@ export default function InvitationContent({
           <figcaption className="mt-2 text-sm font-bold text-purple-600" style={{
               textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
           }}>
-              愛と絆のセレブレーション
+              愛と絆のｾﾚﾌﾞﾚｰｼｮﾝ
           </figcaption>
       </figure>
 
@@ -65,27 +60,30 @@ export default function InvitationContent({
           <p className={cn("text-xl font-bold text-pink-700")} style={{
               textShadow: `
                   2px 2px 0px #FFD700,
-                  -1px -1px 0px #000,
-                  1px -1px 0px #000,
-                  -1px 1px 0px #000,
-                  1px 1px 0px #000,
                   0 0 10px rgba(255,215,0,0.6)
                 `,
               WebkitTextStroke: '1px black'
           }}>
-              お二人の結婚式にご招待します
+              二人の結婚式にご招待します
+          </p>
+          <p className="whitespace-pre-wrap">
+              皆様いかがお過ごしでしょうか
+              このたび結婚式を執り行うこととなりました
+
+              日頃お世話になっておりますみなさまに
+              私どもの門出をお見守りいただきたく
+              ささやかながら小宴を催したく存じます
+
+              ご多用中誠に恐縮ではございますが
+              ぜひご出席いただきたくご案内申し上げます
           </p>
 
           <p className={cn("text-3xl font-black text-red-600 my-4")} style={{
               textShadow: `
                   4px 4px 0px #FFD700,
-                  -2px -2px 0px #000,
-                  2px -2px 0px #000,
-                  -2px 2px 0px #000,
-                  2px 2px 0px #000,
                   0 0 20px rgba(255,215,0,1)
                 `,
-              WebkitTextStroke: '2px black',
+              WebkitTextStroke: '1px black',
               filter: 'drop-shadow(5px 5px 10px rgba(0,0,0,0.8))'
           }}>
               💕 {coupleNames} 💕
@@ -95,12 +93,7 @@ export default function InvitationContent({
               <p className="text-blue-700" style={{
                   textShadow: `
                     1px 1px 0px #FFD700,
-                    -1px -1px 0px #000,
-                    1px -1px 0px #000,
-                    -1px 1px 0px #000,
-                    1px 1px 0px #000
                   `,
-                  WebkitTextStroke: '0.5px black'
               }}>
                   📅 <strong>日付：</strong> {weddingDate}
               </p>
@@ -108,12 +101,7 @@ export default function InvitationContent({
               <p className="text-green-700" style={{
                   textShadow: `
                     1px 1px 0px #FFD700,
-                    -1px -1px 0px #000,
-                    1px -1px 0px #000,
-                    -1px 1px 0px #000,
-                    1px 1px 0px #000
                   `,
-                  WebkitTextStroke: '0.5px black'
               }}>
                   🕐 <strong>時間：</strong> {weddingTime}
               </p>
@@ -121,12 +109,7 @@ export default function InvitationContent({
               <p className="text-purple-700" style={{
                   textShadow: `
                     1px 1px 0px #FFD700,
-                    -1px -1px 0px #000,
-                    1px -1px 0px #000,
-                    -1px 1px 0px #000,
-                    1px 1px 0px #000
                   `,
-                  WebkitTextStroke: '0.5px black'
               }}>
                   🏛️ <strong>会場：</strong> {venue}
               </p>
@@ -134,12 +117,7 @@ export default function InvitationContent({
               <p className="text-orange-700 text-sm" style={{
                   textShadow: `
                     1px 1px 0px #FFD700,
-                    -1px -1px 0px #000,
-                    1px -1px 0px #000,
-                    -1px 1px 0px #000,
-                    1px 1px 0px #000
                   `,
-                  WebkitTextStroke: '0.5px black'
               }}>
                   📍 <strong>住所：</strong> {venueAddress}
               </p>
@@ -155,10 +133,6 @@ export default function InvitationContent({
               <p className={cn("text-xl font-black text-red-800")} style={{
                   textShadow: `
                     2px 2px 0px #FFFF00,
-                    -1px -1px 0px #000,
-                    1px -1px 0px #000,
-                    -1px 1px 0px #000,
-                    1px 1px 0px #000,
                     0 0 10px rgba(255,255,0,0.8)
                   `,
                   WebkitTextStroke: '1px black'
@@ -166,14 +140,7 @@ export default function InvitationContent({
                   🎉 ぜひご参加ください！ 🎉
               </p>
 
-              <p className="text-base font-bold text-purple-800 mt-2" style={{
-                  textShadow: `
-                    1px 1px 0px #FFFF00,
-                    -1px -1px 0px #000,
-                    1px -1px 0px #000,
-                    -1px 1px 0px #000,
-                    1px 1px 0px #000
-                  `,
+              <p className="text-base text-purple-800 mt-2" style={{
                   WebkitTextStroke: '0.5px black'
               }}>
                   下にスクロールしてご返信ください 💌
