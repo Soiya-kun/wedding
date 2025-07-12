@@ -90,6 +90,9 @@ export default function HeaderBanner({
           🎉 日程：{weddingDate} • 日程：{weddingDate} • 日程：{weddingDate} •
         </div>
       </div>
+        <div className="mt-2">
+            あなたは
+        </div>
 
       <style>{`
         @keyframes blink {
