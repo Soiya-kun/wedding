@@ -26,14 +26,17 @@ export default function PreWeddingPhotos() {
       >
         📸 前撮り写真 📸
       </h2>
-      <div className="flex justify-center space-x-2">
+      <div className="font-bold underline text-xl">
+        ＠ｸﾞｯｹﾞﾝﾊｲﾑ邸
+      </div>
+      <div className=" justify-center space-x-2">
         {photos.map((src, i) => (
           <img
             key={i}
             src={src}
             alt={`Pre wedding ${i + 1}`}
-            className="w-32 h-32 object-cover border-4 border-solid border-yellow-700 shadow"
-            style={{ filter: "sepia(0.5)" }}
+            className="object-cover border-4 border-solid border-yellow-700 shadow"
+            style={{ filter: "sepia(0.3)" }}
           />
         ))}
       </div>
