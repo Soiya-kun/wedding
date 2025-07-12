@@ -131,7 +131,6 @@ export default function InvitationContent({
                     2px 2px 0px #FFFF00,
                     0 0 10px rgba(255,255,0,0.8)
                   `,
-                    WebkitTextStroke: '1px black'
                 }}>
                     🎉 ぜひご参加ください！ 🎉
                 </p>
