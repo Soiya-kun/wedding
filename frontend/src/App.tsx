@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import HeaderBanner from './components/HeaderBanner'
 import InvitationContent from './components/InvitationContent'
+import PreWeddingPhotos from './components/PreWeddingPhotos'
 import RSVPForm, { type RSVPFormData } from './components/RSVPForm'
 import { cn } from './lib/utils'
 
@@ -64,6 +65,9 @@ function App() {
             <div className="space-y-8">
               <section aria-label="Wedding invitation details">
                 <InvitationContent />
+              </section>
+              <section aria-label="Pre wedding photos">
+                <PreWeddingPhotos />
               </section>
               <section aria-label="RSVP form">
                 <RSVPForm onSubmit={handleRSVPSubmit} status={rsvpStatus} />
