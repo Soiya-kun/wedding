@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from '../lib/utils'
+import { useEffect, useState } from 'react'
 
 export interface HeaderBannerProps {
   weddingDate?: string
@@ -11,6 +12,25 @@ export default function HeaderBanner({
   weddingDate = '令和7年9月17日（土）',
   coupleNames = '誠也 ＆ 有紀',
 }: HeaderBannerProps) {
+  const [visitCount, setVisitCount] = useState(0)
+
+  useEffect(() => {
+    let count = 0
+    try {
+      // use 29 so the first display will be 30
+      count = parseInt(localStorage.getItem('visit-count') || '29', 10) + 1
+    } catch {
+      // ignore read errors
+      count = 30
+    }
+    try {
+      localStorage.setItem('visit-count', String(count))
+    } catch {
+      // ignore write errors
+    }
+    setVisitCount(count)
+  }, [])
+
   return (
     <header
       className={cn(
@@ -90,9 +110,21 @@ export default function HeaderBanner({
           🎉 日程：{weddingDate} • 日程：{weddingDate} • 日程：{weddingDate} •
         </div>
       </div>
-        <div className="mt-2">
-            あなたは
-        </div>
+      <div className="mt-2 text-sm" style={{ fontFamily: 'Courier New, monospace' }}>
+        あなたは{' '}
+        <span className="visitor-counter">
+          {visitCount
+            .toString()
+            .padStart(6, '0')
+            .split('')
+            .map((d, i) => (
+              <span key={i} className="visitor-digit">
+                {d}
+              </span>
+            ))}
+        </span>{' '}
+        人目の訪問者です
+      </div>
 
       <style>{`
         @keyframes blink {
@@ -116,6 +148,24 @@ export default function HeaderBanner({
         }
         ::-webkit-scrollbar-thumb:hover {
           background: linear-gradient(45deg, #00ff00, #0000ff);
+        }
+        .visitor-counter {
+          display: inline-flex;
+        }
+        .visitor-digit {
+          display: inline-block;
+          width: 1.2em;
+          height: 1.6em;
+          margin: 0 1px;
+          background: #000;
+          color: #f00;
+          font-family: 'Courier New', monospace;
+          font-size: 1em;
+          line-height: 1.6em;
+          text-align: center;
+          border: 2px inset #400;
+          box-shadow: inset 0 0 4px #f00;
+          text-shadow: 0 0 4px #f00;
         }
       `}</style>
     </header>
