@@ -157,15 +157,15 @@ export default function HeaderBanner({
           width: 1.2em;
           height: 1.6em;
           margin: 0 1px;
-          background: #000;
-          color: #f00;
+          background: #8a2be2;
+          color: #ffff00;
           font-family: 'Courier New', monospace;
           font-size: 1em;
           line-height: 1.6em;
           text-align: center;
-          border: 2px inset #400;
-          box-shadow: inset 0 0 4px #f00;
-          text-shadow: 0 0 4px #f00;
+          border: 2px inset #ff69b4;
+          box-shadow: inset 0 0 10px #00ffff;
+          text-shadow: 0 0 8px #ffff00;
         }
       `}</style>
     </header>
