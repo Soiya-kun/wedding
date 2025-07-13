@@ -115,6 +115,16 @@ export default function InvitationContent({
                 }}>
                     📍 <strong>住所：</strong> {venueAddress}
                 </p>
+                <div className="mt-4">
+                    <iframe
+                        className="w-full h-64 border-4 border-solid border-green-700 rounded-lg"
+                        src="https://www.google.com/maps?q=%E3%80%92541-0051+%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%82%99%E5%BE%8C%E7%94%BA%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%95%E2%88%92%EF%BC%98+%E7%B6%BF%E6%A5%AD%E4%BC%9A%E9%A4%A8&output=embed"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="綿業会館 地図"
+                        allowFullScreen
+                    ></iframe>
+                </div>
             </div>
 
             {/* Call to Action */}

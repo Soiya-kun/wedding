@@ -296,7 +296,6 @@ export default function RSVPForm({
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                        <div>
                             <label htmlFor={`lastNameKana-${idx}`}
                                    className="block text-base font-bold text-blue-700 mb-2" style={{
                                 textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
