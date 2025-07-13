@@ -246,7 +246,8 @@ export default function RSVPForm({
                         {idx === 0 ? 'お名前' : `お連れ様${idx}`}
                     </legend>
                     <div className="space-y-4">
-                        <div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
                             <label htmlFor={`lastName-${idx}`} className="block text-base font-bold text-blue-700 mb-2"
                                    style={{
                                        textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
@@ -260,7 +261,7 @@ export default function RSVPForm({
                                    style={{
                                        boxShadow: errors[`${idx}-lastName`] ? '0 0 10px rgba(255,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.8)' : '0 0 10px rgba(0,100,255,0.3), inset 0 0 5px rgba(255,255,255,0.8)',
                                        textShadow: '1px 1px 1px rgba(255,255,255,0.5)'
-                                   }} placeholder="姓を入力してください"
+                                   }} placeholder="田中"
                                    aria-describedby={errors[`${idx}-lastName`] ? `lastName-${idx}-error` : undefined}
                                    aria-invalid={!!errors[`${idx}-lastName`]}/>
                             {errors[`${idx}-lastName`] &&
@@ -268,8 +269,8 @@ export default function RSVPForm({
                                     textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                                     WebkitTextStroke: '0.5px black'
                                 }} role="alert">{errors[`${idx}-lastName`]}</p>}
-                        </div>
-                        <div>
+                            </div>
+                            <div>
                             <label htmlFor={`firstName-${idx}`} className="block text-base font-bold text-blue-700 mb-2"
                                    style={{
                                        textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
@@ -283,7 +284,7 @@ export default function RSVPForm({
                                    style={{
                                        boxShadow: errors[`${idx}-firstName`] ? '0 0 10px rgba(255,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.8)' : '0 0 10px rgba(0,100,255,0.3), inset 0 0 5px rgba(255,255,255,0.8)',
                                        textShadow: '1px 1px 1px rgba(255,255,255,0.5)'
-                                   }} placeholder="名を入力してください"
+                                   }} placeholder="太郎"
                                    aria-describedby={errors[`${idx}-firstName`] ? `firstName-${idx}-error` : undefined}
                                    aria-invalid={!!errors[`${idx}-firstName`]}/>
                             {errors[`${idx}-firstName`] &&
@@ -291,7 +292,10 @@ export default function RSVPForm({
                                     textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                                     WebkitTextStroke: '0.5px black'
                                 }} role="alert">{errors[`${idx}-firstName`]}</p>}
+                            </div>
                         </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
                         <div>
                             <label htmlFor={`lastNameKana-${idx}`}
                                    className="block text-base font-bold text-blue-700 mb-2" style={{
@@ -306,7 +310,7 @@ export default function RSVPForm({
                                    style={{
                                        boxShadow: errors[`${idx}-lastNameKana`] ? '0 0 10px rgba(255,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.8)' : '0 0 10px rgba(0,100,255,0.3), inset 0 0 5px rgba(255,255,255,0.8)',
                                        textShadow: '1px 1px 1px rgba(255,255,255,0.5)'
-                                   }} placeholder="せいを入力してください"
+                                   }} placeholder="たなか"
                                    aria-describedby={errors[`${idx}-lastNameKana`] ? `lastNameKana-${idx}-error` : undefined}
                                    aria-invalid={!!errors[`${idx}-lastNameKana`]}/>
                             {errors[`${idx}-lastNameKana`] &&
@@ -314,8 +318,8 @@ export default function RSVPForm({
                                     textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                                     WebkitTextStroke: '0.5px black'
                                 }} role="alert">{errors[`${idx}-lastNameKana`]}</p>}
-                        </div>
-                        <div>
+                            </div>
+                            <div>
                             <label htmlFor={`firstNameKana-${idx}`}
                                    className="block text-base font-bold text-blue-700 mb-2" style={{
                                 textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
@@ -329,7 +333,7 @@ export default function RSVPForm({
                                    style={{
                                        boxShadow: errors[`${idx}-firstNameKana`] ? '0 0 10px rgba(255,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.8)' : '0 0 10px rgba(0,100,255,0.3), inset 0 0 5px rgba(255,255,255,0.8)',
                                        textShadow: '1px 1px 1px rgba(255,255,255,0.5)'
-                                   }} placeholder="めいを入力してください"
+                                   }} placeholder="たろう"
                                    aria-describedby={errors[`${idx}-firstNameKana`] ? `firstNameKana-${idx}-error` : undefined}
                                    aria-invalid={!!errors[`${idx}-firstNameKana`]}/>
                             {errors[`${idx}-firstNameKana`] &&
@@ -337,6 +341,7 @@ export default function RSVPForm({
                                     textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                                     WebkitTextStroke: '0.5px black'
                                 }} role="alert">{errors[`${idx}-firstNameKana`]}</p>}
+                            </div>
                         </div>
                         <div>
                             <label htmlFor={`allergy-${idx}`} className="block text-base font-bold text-blue-700 mb-2"
