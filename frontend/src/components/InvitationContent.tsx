@@ -14,7 +14,7 @@ export default function InvitationContent({
                                               coupleNames = "誠也 ＆ 有紀",
                                               weddingDate = "令和7年9月27日（土）",
                                              weddingTime = "午後12時30分",
-                                             venueAddress = "",
+                                             venueAddress = "〒541-0051 大阪府大阪市中央区備後町２丁目５−８",
                                               decorativeImageUrl = "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=300&fit=crop"
                                           }: InvitationContentProps) {
     return <section className={cn("border-4 border-double border-green-500 p-6 rounded-lg", "bg-white/80")} style={{

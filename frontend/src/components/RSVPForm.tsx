@@ -134,7 +134,7 @@ export default function RSVPForm({
           `,
             filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.6))'
         }}>
-            📝 出欠のご返信 📝
+            📝 出席情報のご登録 📝
         </h2>
 
         <p className="mb-4 text-center">
@@ -143,34 +143,6 @@ export default function RSVPForm({
             また当日のお食事のご用意にあたり<br/>
             アレルギー等がある方はアレルギー欄にご記入くださいますようお願い申し上げます
         </p>
-
-        {/* Status Messages */}
-        {status === 'loading' &&
-            <div className="text-center mb-6 p-4 bg-yellow-300 border-4 border-solid border-orange-500 rounded-lg"
-                 style={{
-                     boxShadow: '0 0 15px rgba(255,165,0,0.8)',
-                     animation: 'pulse 1.5s infinite'
-                 }} role="status" aria-live="polite">
-                <p className="text-xl font-bold text-orange-800" style={{
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                    WebkitTextStroke: '1px black'
-                }}>
-                    🔄 送信中...しばらくお待ちください 🔄
-                </p>
-            </div>}
-
-
-        {status === 'error' &&
-            <div className="text-center mb-6 p-4 bg-red-300 border-4 border-solid border-red-600 rounded-lg" style={{
-                boxShadow: '0 0 15px rgba(255,0,0,0.8)'
-            }} role="alert" aria-live="assertive">
-                <p className="text-xl font-bold text-red-800" style={{
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                    WebkitTextStroke: '1px black'
-                }}>
-                    ❌ ｴﾗｰが発生しました。再度お試しください ❌
-                </p>
-            </div>}
         <form onSubmit={handleSubmit} noValidate>
             {/* Attendance at top */}
             <fieldset
@@ -227,11 +199,11 @@ export default function RSVPForm({
                           style={{
                               boxShadow: 'inset 0 0 15px rgba(255,255,255,0.8)'
                           }}>
-                    <legend className="px-3 text-lg font-bold text-purple-800" style={{
+                    <legend className={`text-lg font-bold text-purple-800 ${idx === 0 ? '' :"px-3"}`} style={{
                         textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                         WebkitTextStroke: '0.5px black'
                     }}>
-                        {idx === 0 ? 'お名前' : `お連れ様${idx}`}
+                        {idx === 0 ? '' : `お連れ様${idx}`}
                     </legend>
                     <div className="space-y-4">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -354,7 +326,7 @@ export default function RSVPForm({
                             <textarea id={`message-${idx}`} value={guest.message}
                                       onChange={e => handleInputChange(idx, 'message', e.target.value)}
                                       className={cn('w-full p-3 text-base font-bold border-4 border-solid rounded-lg', 'bg-white/90 text-purple-800', 'focus:outline-none focus:ring-4 focus:ring-yellow-400 focus:ring-opacity-75', 'transition-all duration-200', 'border-blue-400')}
-                                      rows={3} placeholder="メッセージがあればご記入ください"/>
+                                      rows={6} placeholder="メッセージがあればご記入ください"/>
                         </div>
                     </div>
                 </fieldset>
@@ -412,6 +384,32 @@ export default function RSVPForm({
                             ✅ ご返信ありがとうございました！ ✅
                         </p>
                     </motion.div>}
+
+                {/* Status Messages */}
+                {status === 'loading' &&
+                    <div className="text-center mb-6 p-4 bg-yellow-300 border-4 border-solid border-orange-500 rounded-lg"
+                         style={{
+                             boxShadow: '0 0 15px rgba(255,165,0,0.8)',
+                             animation: 'pulse 1.5s infinite'
+                         }} role="status" aria-live="polite">
+                        <p className="text-xl font-bold text-orange-800" style={{
+                            textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                            WebkitTextStroke: '1px black'
+                        }}>
+                            🔄 送信中...しばらくお待ちください 🔄
+                        </p>
+                    </div>}
+                {status === 'error' &&
+                    <div className="text-center mb-6 p-4 bg-red-300 border-4 border-solid border-red-600 rounded-lg" style={{
+                        boxShadow: '0 0 15px rgba(255,0,0,0.8)'
+                    }} role="alert" aria-live="assertive">
+                        <p className="text-xl font-bold text-red-800" style={{
+                            textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                            WebkitTextStroke: '1px black'
+                        }}>
+                            ❌ ｴﾗｰが発生しました。再度お試しください ❌
+                        </p>
+                    </div>}
             </div>
         </form>
 
