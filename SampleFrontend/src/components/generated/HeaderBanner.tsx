@@ -7,7 +7,7 @@ export interface HeaderBannerProps {
   coupleNames?: string;
 }
 export default function HeaderBanner({
-  weddingDate = "令和6年10月31日（木）",
+  weddingDate = "令和7年9月27日（土）",
   coupleNames = "太郎 ＆ 花子"
 }: HeaderBannerProps) {
   return <header className={cn("w-full max-w-[800px] mx-auto", "bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500", "border-8 border-double border-yellow-400", "p-6 text-center", "shadow-2xl", "font-['Comic_Sans_MS',_cursive]")} style={{

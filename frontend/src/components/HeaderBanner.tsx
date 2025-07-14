@@ -9,7 +9,7 @@ export interface HeaderBannerProps {
 }
 
 export default function HeaderBanner({
-  weddingDate = '令和7年9月17日（土）',
+  weddingDate = '令和7年9月27日（土）',
   coupleNames = '誠也 ＆ 有紀',
 }: HeaderBannerProps) {
   const [visitCount, setVisitCount] = useState(0)
