@@ -6,7 +6,6 @@ export interface InvitationContentProps {
     coupleNames?: string;
     weddingDate?: string;
     weddingTime?: string;
-    venue?: string;
     venueAddress?: string;
     decorativeImageUrl?: string;
 }
@@ -14,9 +13,8 @@ export interface InvitationContentProps {
 export default function InvitationContent({
                                               coupleNames = "誠也 ＆ 有紀",
                                               weddingDate = "令和7年9月27日（土）",
-                                              weddingTime = "午後12時30分",
-                                              venue = "俺の式場",
-                                              venueAddress = "",
+                                             weddingTime = "午後12時30分",
+                                             venueAddress = "",
                                               decorativeImageUrl = "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=300&fit=crop"
                                           }: InvitationContentProps) {
     return <section className={cn("border-4 border-double border-green-500 p-6 rounded-lg", "bg-white/80")} style={{
@@ -105,7 +103,7 @@ export default function InvitationContent({
                     1px 1px 0px #FFD700,
                   `,
                 }}>
-                    🏛️ <strong>会場：</strong> {venue}
+                    🏛️ <strong>会場：</strong> <span className="line-through">ORENOSHIKIJO</span>綿業会館
                 </p>
 
                 <p className="text-orange-700 text-sm" style={{
