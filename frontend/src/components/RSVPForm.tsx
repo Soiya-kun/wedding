@@ -159,18 +159,6 @@ export default function RSVPForm({
                 </p>
             </div>}
 
-        {status === 'success' &&
-            <div className="text-center mb-6 p-4 bg-green-300 border-4 border-solid border-green-600 rounded-lg"
-                 style={{
-                     boxShadow: '0 0 15px rgba(0,255,0,0.8)'
-                 }} role="status" aria-live="polite">
-                <p className="text-xl font-bold text-green-800" style={{
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                    WebkitTextStroke: '1px black'
-                }}>
-                    ✅ ご返信ありがとうございました！ ✅
-                </p>
-            </div>}
 
         {status === 'error' &&
             <div className="text-center mb-6 p-4 bg-red-300 border-4 border-solid border-red-600 rounded-lg" style={{
@@ -395,16 +383,35 @@ export default function RSVPForm({
                     background: 'linear-gradient(135deg, #FF0000, #FF8C00, #FFD700)',
                     filter: 'invert(0.1)'
                 }} animate={{
-                    boxShadow: status === 'loading' ? ['0 8px 0px #8B4513, 0 12px 20px rgba(0,0,0,0.4), 0 0 20px rgba(255,165,0,0.6)', '0 8px 0px #8B4513, 0 12px 20px rgba(0,0,0,0.4), 0 0 30px rgba(255,165,0,0.8)', '0 8px 0px #8B4513, 0 12px 20px rgba(0,0,0,0.4), 0 0 20px rgba(255,165,0,0.6)'] : undefined
+                    boxShadow: status === 'loading' ? ['0 8px 0px #8B4513, 0 12px 20px rgba(0,0,0,0.4), 0 0 20px rgba(255,165,0,0.6)', '0 8px 0px #8B4513, 0 12px 20px rgba(0,0,0,0.4), 0 0 30px rgba(255,165,0,0.8)', '0 8px 0px #8B4513, 0 12px 20px rgba(0,0,0,0.4), 0 0 20px rgba(255,165,0,0.6)'] : undefined,
+                    scale: status === 'success' ? [1, 1.1, 1] : 1
                 }} transition={{
                     boxShadow: {
                         duration: 1,
                         repeat: status === 'loading' ? Infinity : 0,
                         ease: 'easeInOut'
+                    },
+                    scale: {
+                        duration: 0.3,
+                        ease: 'easeOut'
                     }
                 }}>
                     {status === 'loading' ? '⏳ 送信中...' : '🚀 送信する 🚀'}
                 </motion.button>
+                {status === 'success' &&
+                    <motion.div
+                        initial={{opacity: 0, y: -10}}
+                        animate={{opacity: 1, y: 0}}
+                        className="mt-4 p-4 bg-green-300 border-4 border-solid border-green-600 rounded-lg inline-block"
+                        style={{boxShadow: '0 0 15px rgba(0,255,0,0.8)'}}
+                        role="status" aria-live="polite">
+                        <p className="text-xl font-bold text-green-800" style={{
+                            textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                            WebkitTextStroke: '1px black'
+                        }}>
+                            ✅ ご返信ありがとうございました！ ✅
+                        </p>
+                    </motion.div>}
             </div>
         </form>
 
