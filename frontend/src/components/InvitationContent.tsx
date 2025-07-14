@@ -106,7 +106,7 @@ export default function InvitationContent({
                     🏛️ <strong>会場：</strong> <span className="line-through">ORENOSHIKIJO</span>綿業会館
                 </p>
 
-                <p className="text-orange-700 text-sm" style={{
+                <p className="text-orange-700" style={{
                     textShadow: `
                     1px 1px 0px #FFD700,
                   `,
@@ -116,7 +116,7 @@ export default function InvitationContent({
                 <div className="mt-4">
                     <iframe
                         className="w-full h-64 border-4 border-solid border-green-700 rounded-lg"
-                        src="https://www.google.com/maps?q=%E3%80%92541-0051+%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%82%99%E5%BE%8C%E7%94%BA%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%95%E2%88%92%EF%BC%98+%E7%B6%BF%E6%A5%AD%E4%BC%9A%E9%A4%A8&output=embed"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.7821192122815!2d135.50126707600958!3d34.685448072925176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e71fd57a8a57%3A0x14f2138b1c9e456c!2z57a_5qWt5Lya6aSo77yI5pel5pys57a_5qWt5YC25qW96YOo77yJ!5e0!3m2!1sja!2sjp!4v1752509374645!5m2!1sja!2sjp"
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                         title="綿業会館 地図"

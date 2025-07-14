@@ -83,6 +83,16 @@ export default function RSVPForm({
             ]
         }));
     };
+
+    const removeGuest = (index: number) => {
+        if (formData.guests.length <= 1) {
+            return; // Always keep at least one guest
+        }
+        setFormData(prev => ({
+            ...prev,
+            guests: prev.guests.filter((_, idx) => idx !== index)
+        }));
+    };
     const validateForm = (): boolean => {
         const newErrors: Record<string, string> = {};
         formData.guests.forEach((g, idx) => {
@@ -100,7 +110,7 @@ export default function RSVPForm({
             }
         });
         if (!formData.attending) {
-            newErrors.attending = 'ご出席の有無を選択してください';
+            newErrors.attending = 'ご出欠を選択してください';
         }
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -134,12 +144,12 @@ export default function RSVPForm({
           `,
             filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.6))'
         }}>
-            📝 出席情報のご登録 📝
+            📝 出欠情報のご登録 📝
         </h2>
 
         <p className="mb-4 text-center">
             郵送でのご案内状に代わり当招待状をお送りしております<br/>
-            お手数ではございますが出席情報のご登録をお願い申し上げます<br/><br/>
+            お手数ではございますが出欠情報のご登録をお願い申し上げます<br/><br/>
             また当日のお食事のご用意にあたり<br/>
             アレルギー等がある方はアレルギー欄にご記入くださいますようお願い申し上げます
         </p>
@@ -154,7 +164,7 @@ export default function RSVPForm({
                     textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                     WebkitTextStroke: '0.5px black'
                 }}>
-                    ご出席の有無*
+                    ご出欠*
                 </legend>
                 <div className="space-y-2">
                     {[{
@@ -205,6 +215,21 @@ export default function RSVPForm({
                     }}>
                         {idx === 0 ? '' : `お連れ様${idx}`}
                     </legend>
+                    {idx > 0 && (
+                        <div className="flex justify-end mb-2">
+                            <button
+                                type="button"
+                                onClick={() => removeGuest(idx)}
+                                className="px-3 py-1 font-bold text-white border-2 border-red-600 rounded-lg bg-red-500 hover:bg-red-600 transition"
+                                style={{
+                                    boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                                    textShadow: '1px 1px 1px rgba(0,0,0,0.5)'
+                                }}
+                            >
+                                削除
+                            </button>
+                        </div>
+                    )}
                     <div className="space-y-4">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
@@ -374,7 +399,7 @@ export default function RSVPForm({
                     <motion.div
                         initial={{opacity: 0, y: -10}}
                         animate={{opacity: 1, y: 0}}
-                        className="mt-4 p-4 bg-green-300 border-4 border-solid border-green-600 rounded-lg inline-block"
+                        className="mt-4 p-4 bg-green-300 border-4 border-solid border-green-600 rounded-lg"
                         style={{boxShadow: '0 0 15px rgba(0,255,0,0.8)'}}
                         role="status" aria-live="polite">
                         <p className="text-xl font-bold text-green-800" style={{
@@ -419,7 +444,7 @@ export default function RSVPForm({
             textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
             WebkitTextStroke: '0.5px black'
         }}>
-            * 必須項目 • 皆さまとお会いできるのを楽しみにしています！💕
+            皆さまとお会いできるのを楽しみにしています！💕
         </p>
     </div>;
 }
