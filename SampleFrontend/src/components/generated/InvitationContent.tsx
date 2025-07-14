@@ -12,7 +12,7 @@ export interface InvitationContentProps {
 }
 export default function InvitationContent({
   coupleNames = "太郎 ＆ 花子",
-  weddingDate = "令和6年10月31日（木）",
+  weddingDate = "令和7年9月27日（土）",
   weddingTime = "午後4時",
   venue = "東京グランドホール",
   venueAddress = "〒541-0051 大阪府大阪市中央区備後町２丁目５−８",
@@ -71,17 +71,7 @@ export default function InvitationContent({
             target.style.display = 'none';
             const fallback = target.nextElementSibling as HTMLElement;
             if (fallback) fallback.style.display = 'block';
-          }} />
-            {/* Fallback for broken image */}
-            <div className="w-64 h-48 mx-auto rounded-lg border-4 border-solid border-gold-400 bg-gradient-to-br from-pink-200 to-purple-200 flex items-center justify-center text-6xl hidden" style={{
-            filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.5))',
-            boxShadow: `
-                  0 0 20px rgba(255,215,0,0.6),
-                  inset 0 0 10px rgba(255,255,255,0.3)
-                `
-          }}>
-              💐💒💐
-            </div>
+          />} />
             <figcaption className="mt-2 text-sm font-bold text-purple-600" style={{
             textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
           }}>
