@@ -97,6 +97,33 @@ export default function InvitationContent({
                 }}>
                     🕐 <strong>時間：</strong> {weddingTime}
                 </p>
+                <div
+                    className={cn(
+                        "mt-4 bg-white/90 border-8 border-double border-red-600 p-6 rounded-lg",
+                        "space-y-4",
+                        "font-['Comic_Sans_MS',_cursive]"
+                    )}
+                    style={{
+                        boxShadow: `
+                          0 0 25px rgba(255,0,0,0.8),
+                          inset 0 0 15px rgba(255,255,255,0.5),
+                          0 0 40px rgba(255,128,128,0.4)
+                        `,
+                    }}
+                >
+                    <h3
+                        className={cn("text-xl font-black text-center text-red-800 mb-4")}
+                        style={{ textShadow: '2px 2px 0 #FFC0CB' }}
+                    >
+                        ⏰ 受付時間 ⏰
+                    </h3>
+                    <div className="text-center font-bold leading-relaxed">
+                        <p>受付 11:45</p>
+                        <p>- 12:15までにお越しください -</p>
+                        <p>挙式 12:30</p>
+                        <p>披露宴 13:45</p>
+                    </div>
+                </div>
 
                 <p className="text-purple-700" style={{
                     textShadow: `
@@ -122,6 +149,31 @@ export default function InvitationContent({
                         title="綿業会館 地図"
                         allowFullScreen
                     ></iframe>
+                </div>
+                <div
+                    className={cn(
+                        "mt-6 bg-white/90 border-8 border-double border-red-600 p-6 rounded-lg",
+                        "space-y-4",
+                        "font-['Comic_Sans_MS',_cursive]"
+                    )}
+                    style={{
+                        boxShadow: `
+                          0 0 25px rgba(255,0,0,0.8),
+                          inset 0 0 15px rgba(255,255,255,0.5),
+                          0 0 40px rgba(255,128,128,0.4)
+                        `,
+                    }}
+                >
+                    <p className="text-center text-sm">
+                        電話番号【06-6341-4466 (WEDDING DESIGN LAB直通)】
+                    </p>
+                    <div className="text-sm space-y-1">
+                        <p className="font-bold">＊交通</p>
+                        <p>公共交通機関でのご来館にご協力ください</p>
+                        <p>大阪メトロ 御堂筋線「本町」駅 １番または３番出口 徒歩５分</p>
+                        <p>大阪メトロ 堺筋線「堺筋本町」駅 17番または12番出口 徒歩5分</p>
+                        <p>提携の駐車場はございませんのでご了承ください</p>
+                    </div>
                 </div>
             </div>
 
