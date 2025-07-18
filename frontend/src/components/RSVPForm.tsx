@@ -42,6 +42,7 @@ export default function RSVPForm({
         ]
     });
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [formSubmitAttempted, setFormSubmitAttempted] = useState(false);
     const handleInputChange = (
         index: number,
         field: keyof GuestInfo,
@@ -60,11 +61,19 @@ export default function RSVPForm({
                 return newErr;
             });
         }
+        // Reset form submit attempted state when user makes changes
+        if (formSubmitAttempted) {
+            setFormSubmitAttempted(false);
+        }
     };
     const handleAttendingChange = (value: string) => {
         setFormData(prev => ({...prev, attending: value}));
         if (errors.attending) {
             setErrors(prev => ({...prev, attending: ''}));
+        }
+        // Reset form submit attempted state when user makes changes
+        if (formSubmitAttempted) {
+            setFormSubmitAttempted(false);
         }
     };
     const addGuest = () => {
@@ -117,6 +126,7 @@ export default function RSVPForm({
     };
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setFormSubmitAttempted(true);
         if (!validateForm()) {
             return;
         }
@@ -398,6 +408,23 @@ export default function RSVPForm({
                 }}>
                     {status === 'loading' ? '⏳ 送信中...' : '🚀 送信する 🚀'}
                 </motion.button>
+
+                {formSubmitAttempted && Object.keys(errors).length > 0 && (
+                    <motion.div
+                        initial={{opacity: 0, y: -10}}
+                        animate={{opacity: 1, y: 0}}
+                        className="mt-4 p-4 bg-red-300 border-4 border-solid border-red-600 rounded-lg"
+                        style={{boxShadow: '0 0 15px rgba(255,0,0,0.8)'}}
+                        role="alert" aria-live="assertive">
+                        <p className="text-xl font-bold text-red-800" style={{
+                            textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                            WebkitTextStroke: '1px black'
+                        }}>
+                            ❌ 入力内容に誤りがあります　ご確認ください ❌
+                        </p>
+                    </motion.div>
+                )}
+
                 {status === 'success' &&
                     <motion.div
                         initial={{opacity: 0, y: -10}}
@@ -435,7 +462,7 @@ export default function RSVPForm({
                             textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
                             WebkitTextStroke: '1px black'
                         }}>
-                            ❌ ｴﾗｰが発生しました。再度お試しください ❌
+                            ❌ ｴﾗｰが発生しました　再度お試しください ❌
                         </p>
                     </div>}
             </div>

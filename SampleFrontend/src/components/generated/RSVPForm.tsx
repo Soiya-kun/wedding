@@ -116,7 +116,7 @@ export default function RSVPForm({
         textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
         WebkitTextStroke: '1px black'
       }}>
-            ❌ エラーが発生しました。再度お試しください ❌
+            ❌ エラーが発生しました　再度お試しください ❌
           </p>
         </div>}
 
@@ -181,7 +181,7 @@ export default function RSVPForm({
             }}>
                 ご出席の有無*
               </legend>
-              
+
               <div className="space-y-2">
                 {[{
                 value: 'Attending',
@@ -207,7 +207,7 @@ export default function RSVPForm({
                     </span>
                   </label>)}
               </div>
-              
+
               {errors.attending && <p id="attending-error" className="mt-2 text-red-600 font-bold" style={{
               textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
               WebkitTextStroke: '0.5px black'
