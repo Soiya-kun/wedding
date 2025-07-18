@@ -26,14 +26,28 @@ export class BackendStack extends cdk.Stack {
       },
     });
 
+    const countFn = new NodejsFunction(this, 'CountHandler', {
+      runtime: Runtime.NODEJS_20_X,
+      entry: 'src/count.ts',
+      environment: {
+        TABLE_NAME: table.tableName,
+      },
+    });
+
     table.grantWriteData(fn);
+    table.grantReadData(countFn);
 
     const integration = new HttpLambdaIntegration('RsvpIntegration', fn);
+    const countIntegration = new HttpLambdaIntegration('CountIntegration', countFn);
 
     const httpApi = new HttpApi(this, 'HttpApi', {
       corsPreflight: {
         allowOrigins: ['*'],
-        allowMethods: [CorsHttpMethod.POST, CorsHttpMethod.OPTIONS],
+        allowMethods: [
+          CorsHttpMethod.POST,
+          CorsHttpMethod.GET,
+          CorsHttpMethod.OPTIONS,
+        ],
         allowHeaders: ['content-type'],
       },
     });
@@ -42,6 +56,12 @@ export class BackendStack extends cdk.Stack {
       path: '/rsvp',
       methods: [HttpMethod.POST],
       integration,
+    });
+
+    httpApi.addRoutes({
+      path: '/count',
+      methods: [HttpMethod.GET],
+      integration: countIntegration,
     });
 
     new cdk.CfnOutput(this, 'HttpApiUrl', {
