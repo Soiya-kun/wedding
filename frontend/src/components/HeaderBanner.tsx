@@ -15,20 +15,17 @@ export default function HeaderBanner({
   const [visitCount, setVisitCount] = useState(0)
 
   useEffect(() => {
-    let count = 0
-    try {
-      // use 29 so the first display will be 30
-      count = parseInt(localStorage.getItem('visit-count') || '29', 10) + 1
-    } catch {
-      // ignore read errors
-      count = 30
+    const fetchCount = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/count`)
+        if (!res.ok) throw new Error('failed')
+        const data = await res.json()
+        setVisitCount(data.count ?? 0)
+      } catch {
+        // ignore errors
+      }
     }
-    try {
-      localStorage.setItem('visit-count', String(count))
-    } catch {
-      // ignore write errors
-    }
-    setVisitCount(count)
+    fetchCount()
   }, [])
 
   return (
