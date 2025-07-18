@@ -154,7 +154,7 @@ export default function RSVPForm({
             アレルギー等がある方はアレルギー欄にご記入くださいますようお願い申し上げます
         </p>
         <p className="text-center font-bold text-red-700 mb-6">
-            ＊返信締め切り【8月27日】
+            ＊返信締めきり【8月27日】
         </p>
         <form onSubmit={handleSubmit} noValidate>
             {/* Attendance at top */}

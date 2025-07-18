@@ -89,13 +89,18 @@ export default function InvitationContent({
                 </p>
 
                 {/* 受付時間 */}
-                <p className="text-purple-700 font-bold">
-                    <strong>受付：</strong>11:45
-                </p>
-                <p className="text-purple-700 font-bold">
+                <div>
+                    <p className="text-purple-700 font-bold">
+                        <strong>受付：</strong>11:45
+                    </p>
+                    <p className="text-orange-400">
+                        12:15までにお越しください
+                    </p>
+                </div>
+                <p className="text-green-800 font-bold">
                     <strong>挙式：</strong>12:30
                 </p>
-                <p className="text-purple-700 font-bold">
+                <p className="text-yellow-600 font-bold">
                     <strong>披露宴：</strong>13:45
                 </p>
 
