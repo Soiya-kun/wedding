@@ -5,7 +5,6 @@ import {cn} from "../lib/utils";
 export interface InvitationContentProps {
     coupleNames?: string;
     weddingDate?: string;
-    weddingTime?: string;
     venueAddress?: string;
     decorativeImageUrl?: string;
 }
@@ -13,7 +12,6 @@ export interface InvitationContentProps {
 export default function InvitationContent({
                                               coupleNames = "誠也 ＆ 有紀",
                                               weddingDate = "令和7年9月27日（土）",
-                                             weddingTime = "午後12時30分",
                                              venueAddress = "〒541-0051 大阪府大阪市中央区備後町２丁目５−８",
                                               decorativeImageUrl = "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=300&fit=crop"
                                           }: InvitationContentProps) {
@@ -90,40 +88,16 @@ export default function InvitationContent({
                     📅 <strong>日付：</strong> {weddingDate}
                 </p>
 
-                <p className="text-green-700" style={{
-                    textShadow: `
-                    1px 1px 0px #FFD700,
-                  `,
-                }}>
-                    🕐 <strong>時間：</strong> {weddingTime}
+                {/* 受付時間 */}
+                <p className="text-purple-700 font-bold">
+                    <strong>受付：</strong>11:45
                 </p>
-                <div
-                    className={cn(
-                        "mt-4 bg-white/90 border-8 border-double border-red-600 p-6 rounded-lg",
-                        "space-y-4",
-                        "font-['Comic_Sans_MS',_cursive]"
-                    )}
-                    style={{
-                        boxShadow: `
-                          0 0 25px rgba(255,0,0,0.8),
-                          inset 0 0 15px rgba(255,255,255,0.5),
-                          0 0 40px rgba(255,128,128,0.4)
-                        `,
-                    }}
-                >
-                    <h3
-                        className={cn("text-xl font-black text-center text-red-800 mb-4")}
-                        style={{ textShadow: '2px 2px 0 #FFC0CB' }}
-                    >
-                        ⏰ 受付時間 ⏰
-                    </h3>
-                    <div className="text-center font-bold leading-relaxed">
-                        <p>受付 11:45</p>
-                        <p>- 12:15までにお越しください -</p>
-                        <p>挙式 12:30</p>
-                        <p>披露宴 13:45</p>
-                    </div>
-                </div>
+                <p className="text-purple-700 font-bold">
+                    <strong>挙式：</strong>12:30
+                </p>
+                <p className="text-purple-700 font-bold">
+                    <strong>披露宴：</strong>13:45
+                </p>
 
                 <p className="text-purple-700" style={{
                     textShadow: `
@@ -150,31 +124,13 @@ export default function InvitationContent({
                         allowFullScreen
                     ></iframe>
                 </div>
-                <div
-                    className={cn(
-                        "mt-6 bg-white/90 border-8 border-double border-red-600 p-6 rounded-lg",
-                        "space-y-4",
-                        "font-['Comic_Sans_MS',_cursive]"
-                    )}
-                    style={{
-                        boxShadow: `
-                          0 0 25px rgba(255,0,0,0.8),
-                          inset 0 0 15px rgba(255,255,255,0.5),
-                          0 0 40px rgba(255,128,128,0.4)
-                        `,
-                    }}
-                >
-                    <p className="text-center text-sm">
-                        電話番号【06-6341-4466 (WEDDING DESIGN LAB直通)】
-                    </p>
-                    <div className="text-sm space-y-1">
-                        <p className="font-bold">＊交通</p>
-                        <p>公共交通機関でのご来館にご協力ください</p>
-                        <p>大阪メトロ 御堂筋線「本町」駅 １番または３番出口 徒歩５分</p>
-                        <p>大阪メトロ 堺筋線「堺筋本町」駅 17番または12番出口 徒歩5分</p>
-                        <p>提携の駐車場はございませんのでご了承ください</p>
-                    </div>
-                </div>
+                <p className="text-purple-700 font-bold">
+                    <strong>電話番号：</strong>06-6341-4466 (WEDDING DESIGN LAB直通)
+                </p>
+                <p className="text-sm">＊交通：公共交通機関でのご来館にご協力ください</p>
+                <p className="text-sm">大阪メトロ 御堂筋線「本町」駅 １番または３番出口 徒歩５分</p>
+                <p className="text-sm">大阪メトロ 堺筋線「堺筋本町」駅 17番または12番出口 徒歩５分</p>
+                <p className="text-sm">提携の駐車場はございませんのでご了承ください</p>
             </div>
 
             {/* Call to Action */}
@@ -186,7 +142,7 @@ export default function InvitationContent({
                   inset 0 0 10px rgba(255,255,255,0.6)
                 `
                 }}>
-                <p className={cn("text-xl font-black text-red-800")} style={{
+                <p className={cn("text-xl font-black text-purple-700")} style={{
                     textShadow: `
                     2px 2px 0px #FFFF00,
                     0 0 10px rgba(255,255,0,0.8)
