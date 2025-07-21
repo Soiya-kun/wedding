@@ -6,11 +6,13 @@ import { useEffect, useState } from 'react'
 export interface HeaderBannerProps {
   weddingDate?: string
   coupleNames?: string
+  onVisitCountChange?: (count: number) => void
 }
 
 export default function HeaderBanner({
   weddingDate = '令和7年9月27日（土）',
   coupleNames = '誠也 ＆ 有紀',
+  onVisitCountChange,
 }: HeaderBannerProps) {
   const [visitCount, setVisitCount] = useState(0)
 
@@ -26,14 +28,16 @@ export default function HeaderBanner({
         const res = await fetch(`${import.meta.env.VITE_API_URL}/count`)
         if (!res.ok) throw new Error('failed')
         const data = await res.json()
-        setVisitCount(data.count ?? 0)
+        const count = data.count ?? 0
+        setVisitCount(count)
+        if (onVisitCountChange) onVisitCountChange(count)
       } catch {
         // ignore errors
       }
     }
 
     recordAndFetch()
-  }, [])
+  }, [onVisitCountChange])
 
   return (
     <header
