@@ -15,7 +15,13 @@ export default function HeaderBanner({
   const [visitCount, setVisitCount] = useState(0)
 
   useEffect(() => {
-    const fetchCount = async () => {
+    const recordAndFetch = async () => {
+      try {
+        await fetch(`${import.meta.env.VITE_API_URL}/access`, { method: 'POST' })
+      } catch {
+        // ignore errors
+      }
+
       try {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/count`)
         if (!res.ok) throw new Error('failed')
@@ -25,7 +31,8 @@ export default function HeaderBanner({
         // ignore errors
       }
     }
-    fetchCount()
+
+    recordAndFetch()
   }, [])
 
   return (
