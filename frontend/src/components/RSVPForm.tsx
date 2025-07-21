@@ -420,7 +420,7 @@ export default function RSVPForm({
                             textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
                             WebkitTextStroke: '1px black'
                         }}>
-                            ❌ 入力内容に誤りがあります　ご確認ください ❌
+                            ❌ 入力内容に誤りがあります ご確認ください ❌
                         </p>
                     </motion.div>
                 )}
@@ -462,7 +462,7 @@ export default function RSVPForm({
                             textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
                             WebkitTextStroke: '1px black'
                         }}>
-                            ❌ ｴﾗｰが発生しました　再度お試しください ❌
+                            ❌ ｴﾗｰが発生しました 再度お試しください ❌
                         </p>
                     </div>}
             </div>

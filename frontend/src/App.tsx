@@ -8,6 +8,7 @@ import { cn } from './lib/utils'
 
 function App() {
   const [rsvpStatus, setRsvpStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [visitCount, setVisitCount] = useState(0)
 
   const handleRSVPSubmit = async (data: RSVPFormData) => {
     setRsvpStatus('loading')
@@ -15,7 +16,7 @@ function App() {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/rsvp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify({ ...data, visitCount })
       })
       if (!res.ok) throw new Error(await res.text())
       setRsvpStatus('success')
@@ -44,7 +45,7 @@ function App() {
         `
       }}
     >
-      <HeaderBanner />
+      <HeaderBanner onVisitCountChange={setVisitCount} />
       <main
         className="table w-full max-w-[800px] mx-auto bg-white/90 border-8 border-double border-purple-600 shadow-2xl"
         style={{
