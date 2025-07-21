@@ -10,7 +10,7 @@ export class BackendStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const table = new Table(this, 'RsvpTable', {
+    const rsvpTable = new Table(this, 'RsvpTable', {
       tableName: 'RsvpTable',
       partitionKey: { name: 'token', type: AttributeType.STRING },
       billingMode: BillingMode.PAY_PER_REQUEST,
@@ -18,11 +18,18 @@ export class BackendStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
 
+    const accessTable = new Table(this, 'AccessCountTable', {
+      tableName: 'AccessCountTable',
+      partitionKey: { name: 'id', type: AttributeType.STRING },
+      billingMode: BillingMode.PAY_PER_REQUEST,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
+
     const fn = new NodejsFunction(this, 'RsvpHandler', {
       runtime: Runtime.NODEJS_20_X,
       entry: 'src/handler.ts',
       environment: {
-        TABLE_NAME: table.tableName,
+        TABLE_NAME: rsvpTable.tableName,
       },
     });
 
@@ -30,15 +37,25 @@ export class BackendStack extends cdk.Stack {
       runtime: Runtime.NODEJS_20_X,
       entry: 'src/count.ts',
       environment: {
-        TABLE_NAME: table.tableName,
+        TABLE_NAME: accessTable.tableName,
       },
     });
 
-    table.grantWriteData(fn);
-    table.grantReadData(countFn);
+    const accessFn = new NodejsFunction(this, 'AccessHandler', {
+      runtime: Runtime.NODEJS_20_X,
+      entry: 'src/access.ts',
+      environment: {
+        TABLE_NAME: accessTable.tableName,
+      },
+    });
+
+    rsvpTable.grantWriteData(fn);
+    accessTable.grantWriteData(accessFn);
+    accessTable.grantReadData(countFn);
 
     const integration = new HttpLambdaIntegration('RsvpIntegration', fn);
     const countIntegration = new HttpLambdaIntegration('CountIntegration', countFn);
+    const accessIntegration = new HttpLambdaIntegration('AccessIntegration', accessFn);
 
     const httpApi = new HttpApi(this, 'HttpApi', {
       corsPreflight: {
@@ -62,6 +79,12 @@ export class BackendStack extends cdk.Stack {
       path: '/count',
       methods: [HttpMethod.GET],
       integration: countIntegration,
+    });
+
+    httpApi.addRoutes({
+      path: '/access',
+      methods: [HttpMethod.POST],
+      integration: accessIntegration,
     });
 
     new cdk.CfnOutput(this, 'HttpApiUrl', {
